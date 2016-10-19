@@ -1,0 +1,79 @@
+class ShoppingCart
+
+
+	def initialize
+		@items = []
+		@price = 0
+	end
+
+	def add_item (item)
+		@items.push (item)
+	end
+
+	def discount_many_items
+		
+		if item_counter > 5
+			@price - 0.1 * @price
+		else
+			@price
+		end
+	end
+
+end
+
+class Item 
+  def initialize(name, price)
+      @name = name
+      @price = price
+  end
+
+  def price
+      @price
+  end
+end
+
+class Houseware < Item
+  def price
+      if @price >= 100
+      	price = @@price * (1-0.05)
+
+      else
+      	price = @price
+      end
+      price
+
+  end
+end
+
+class Fruit < Item
+  def price
+      def price
+      	daywkday= Time.new
+      	daywkday.wday
+      	if daywkday == 0 || daywkday == 6
+      		price = @price * (1-0.1)
+      	else
+      		price = @price
+
+      	end
+      	price
+
+  	  end
+  	end
+end
+
+
+banana = Fruit.new("banana", 10)
+orange_juice = Item.new("orange juice", 10)
+rice = Item.new("rice", 1)
+vacuum_cleaner = Houseware.new("vacuum cleaner", 150)
+anchovies = Item.new("anchovies", 2)
+
+simon_cart = ShoppingCart.new
+simon_cart.add_item(banana)
+simon_cart.add_item(orange_juice)
+simon_cart.add_item(rice)
+simon_cart.add_item(vacuum_cleaner)
+simon_cart.add_item(anchovies)
+
+puts "Your total is: $#{simon_cart}."
